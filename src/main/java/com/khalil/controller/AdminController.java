@@ -41,7 +41,7 @@ public class AdminController {
 		List<String[]> list = new ArrayList<>();
 		CSVReader csvReader = new CSVReader(reader);
 		String[] line;
-		line = csvReader.readNext();
+		csvReader.readNext();
 		while ((line = csvReader.readNext()) != null) {
 			list.add(line);
 			getGame(line);
@@ -68,7 +68,7 @@ public class AdminController {
 		
 		CSVParser csvParser = new CSVParser();
 		String[] genreArray = csvParser.parseLine(line[3]);
-		List<Genre> genreList = new ArrayList<Genre>();
+		List<Genre> genreList = new ArrayList<>();
 		for ( String genreTemp : genreArray ) {
 			Genre genre = genreRepository.findByName(genreTemp);
 			if ( genre == null ) {
